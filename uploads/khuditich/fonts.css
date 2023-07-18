@@ -1,0 +1,60 @@
+@font-face {
+   font-family: "Barlow Semi Condensed";
+   src: url("fonts/Barlow Semi Condensed Bold.woff") format("woff"), url("fonts/Barlow Semi Condensed Bold.eot") format("embedded-opentype"), url("fonts/Barlow Semi Condensed Bold.ttf") format("truetype"), url("fonts/Barlow Semi Condensed Bold.svg") format("svg");
+   font-weight: bold;
+   font-style: normal;
+}
+@font-face {
+   font-family: "Barlow Semi Condensed";
+   src: url("fonts/Barlow Semi Condensed Bold Italic.woff") format("woff"), url("fonts/Barlow Semi Condensed Bold Italic.eot") format("embedded-opentype"), url("fonts/Barlow Semi Condensed Bold Italic.ttf") format("truetype"), url("fonts/Barlow Semi Condensed Bold Italic.svg") format("svg");
+   font-weight: bold;
+   font-style: italic;
+}
+@font-face {
+   font-family: "Barlow Semi Condensed";
+   src: url("fonts/Barlow Semi Condensed Italic.woff") format("woff"), url("fonts/Barlow Semi Condensed Italic.eot") format("embedded-opentype"), url("fonts/Barlow Semi Condensed Italic.ttf") format("truetype"), url("fonts/Barlow Semi Condensed Italic.svg") format("svg");
+   font-weight: normal;
+   font-style: italic;
+}
+@font-face {
+   font-family: "Barlow Semi Condensed";
+   src: url("fonts/Barlow Semi Condensed Regular.woff") format("woff"), url("fonts/Barlow Semi Condensed Regular.eot") format("embedded-opentype"), url("fonts/Barlow Semi Condensed Regular.ttf") format("truetype"), url("fonts/Barlow Semi Condensed Regular.svg") format("svg");
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
+   font-family: "Barlow Semi Condensed ExLight";
+   src: url("fonts/Barlow Semi Condensed ExtraLight.woff") format("woff"), url("fonts/Barlow Semi Condensed ExtraLight.eot") format("embedded-opentype"), url("fonts/Barlow Semi Condensed ExtraLight.ttf") format("truetype"), url("fonts/Barlow Semi Condensed ExtraLight.svg") format("svg");
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
+   font-family: "Barlow Semi Condensed ExLight";
+   src: url("fonts/Barlow Semi Condensed ExtraLight Italic.woff") format("woff"), url("fonts/Barlow Semi Condensed ExtraLight Italic.eot") format("embedded-opentype"), url("fonts/Barlow Semi Condensed ExtraLight Italic.ttf") format("truetype"), url("fonts/Barlow Semi Condensed ExtraLight Italic.svg") format("svg");
+   font-weight: normal;
+   font-style: italic;
+}
+@font-face {
+   font-family: "Barlow Semi Condensed Medium";
+   src: url("fonts/Barlow Semi Condensed Medium.woff") format("woff"), url("fonts/Barlow Semi Condensed Medium.eot") format("embedded-opentype"), url("fonts/Barlow Semi Condensed Medium.ttf") format("truetype"), url("fonts/Barlow Semi Condensed Medium.svg") format("svg");
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
+   font-family: "Barlow Semi Condensed Medium";
+   src: url("fonts/Barlow Semi Condensed Medium Italic.woff") format("woff"), url("fonts/Barlow Semi Condensed Medium Italic.eot") format("embedded-opentype"), url("fonts/Barlow Semi Condensed Medium Italic.ttf") format("truetype"), url("fonts/Barlow Semi Condensed Medium Italic.svg") format("svg");
+   font-weight: normal;
+   font-style: italic;
+}
+@font-face {
+   font-family: "Barlow Semi Condensed SemiBold";
+   src: url("fonts/Barlow Semi Condensed SemiBold.woff") format("woff"), url("fonts/Barlow Semi Condensed SemiBold.eot") format("embedded-opentype"), url("fonts/Barlow Semi Condensed SemiBold.ttf") format("truetype"), url("fonts/Barlow Semi Condensed SemiBold.svg") format("svg");
+   font-weight: bold;
+   font-style: normal;
+}
+@font-face {
+   font-family: "Barlow Semi Condensed SemiBold";
+   src: url("fonts/Barlow Semi Condensed SemiBold Italic.woff") format("woff"), url("fonts/Barlow Semi Condensed SemiBold Italic.eot") format("embedded-opentype"), url("fonts/Barlow Semi Condensed SemiBold Italic.ttf") format("truetype"), url("fonts/Barlow Semi Condensed SemiBold Italic.svg") format("svg");
+   font-weight: bold;
+   font-style: italic;
+}
