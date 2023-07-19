@@ -1,10 +1,9 @@
 import multer from "multer";
 import fs from "fs-extra";
-import path, { dirname } from "path";
+import path from "path";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const path1 = `../resources/${req.query.projectName}/present`;
     const dir = path.join(
       __dirname,
       "../../resources/",
@@ -12,18 +11,11 @@ const storage = multer.diskStorage({
       "present"
     );
 
-    const appDir = dirname(require?.main?.filename as string);
-    console.log(appDir);
-    console.log(__dirname);
-    console.log(dir);
-    console.log(path.join(appDir, path1));
-    const a = path.join(appDir, path1);
-
-    if (!fs.existsSync(a)) {
-      fs.mkdirSync(a, { recursive: true });
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
     }
 
-    cb(null, a);
+    cb(null, dir);
   },
   filename: function (req, file, cb) {
     const fileExtension = file.mimetype.split("/")[1];
@@ -32,4 +24,18 @@ const storage = multer.diskStorage({
   },
 });
 
-export const parserUploadLocal = multer({ storage });
+const fileFilter = (req: any, file: Express.Multer.File, cb: any) => {
+  if (!file.originalname.match(/\.(zip)$/)) {
+    return cb(
+      new multer.MulterError(
+        "LIMIT_UNEXPECTED_FILE",
+        "Uploaded file is invalid. Only *.zip is acceptable"
+      ),
+      false
+    );
+  }
+
+  cb(null, true);
+};
+
+export const parserUpload = multer({ storage, fileFilter });

@@ -1,12 +1,15 @@
 // import "reflect-metadata";
 import cookieParser from "cookie-parser";
 // import morgan from 'morgan';
-// import helmet from 'helmet';
+import helmet from 'helmet';
 import cors from "cors";
 import "dotenv/config";
 
 import express, { NextFunction, Request, Response } from "express";
 import { initRouters } from "./routes";
+import { createModuleLogger } from "./logging/logger";
+
+const logger = createModuleLogger("VR360.Server");
 
 const app = express();
 const handleError = (
@@ -32,6 +35,10 @@ const handleError = (
  *                              Set basic express settings
  ***********************************************************************************/
 app.use(cors());
+app.use(helmet({
+  contentSecurityPolicy: process.env.NODE_ENV === 'production' ? undefined : false,
+  crossOriginEmbedderPolicy: process.env.NODE_ENV !== 'local'
+}))
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cookieParser());
@@ -45,14 +52,9 @@ app.use(initRouters());
 app.use("/resources", express.static("resources"));
 app.use(handleError)
 
-// Run listen events
-// run();
-
 const PORT = process.env.PORT || 3000;
 
-// console.log(__dirname);
-
 app.listen(PORT, () => {
-  console.log(`🚀 REST API server is running on http://localhost:${PORT}`);
+  logger.info(`🚀 REST API server is running on http://localhost:${PORT}`);
 });
 

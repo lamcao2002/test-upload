@@ -19,5 +19,15 @@ disk: 512
 
 # Your app's configuration when it's exposed to the web.
 web:
+    locations:
+        '/':
+            # The public directory relative to the app root.
+            root: 'src'
+            # Forward resources to the app.
+            passthru: true
+            # What files to use when serving a directory.
+            index: ["server.ts"]
+            # Allow files even without specified rules.
+            allow: true
     commands:
         start: npm run start
