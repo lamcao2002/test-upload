@@ -1,11 +1,13 @@
 {
   "name": "vr360",
   "version": "1.0.0",
+  "main": "server.ts",
   "scripts": {
     "dev": "yarn run build:dev",
     "build:dev": "nodemon \"src/server.ts\" --exec \"ts-node -r tsconfig-paths/register\" src/server.ts -e ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "yarn dev"
+    "tsc": "tsc",
+    "start": "node build/server.js"
   },
   "author": "",
   "license": "ISC",
