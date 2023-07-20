@@ -1,13 +1,14 @@
-// import "reflect-metadata";
-import cookieParser from "cookie-parser";
-// import morgan from 'morgan';
-import helmet from 'helmet';
+import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
+import helmet from 'helmet';
+import morgan from 'morgan';
 import "dotenv/config";
 
-import express, { NextFunction, Request, Response } from "express";
+import cookieParser from "cookie-parser";
 import { initRouters } from "./routes";
 import { createModuleLogger } from "./logging/logger";
+import { ResponseError } from "./models/error";
+import { StatusCodes } from "http-status-codes";
 
 const logger = createModuleLogger("VR360.Server");
 
@@ -19,13 +20,13 @@ const handleError = (
   next: NextFunction
 ) => {
   if (err) {
-    // logger.error(`HTTP ${req.method} ${req.originalUrl}`);
+    logger.error(`HTTP ${req.method} ${req.originalUrl}`);
 
-    // if (err instanceof AppError) {
-    //   res.status(err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR);
-    // } else {
-    //   res.status(StatusCodes.INTERNAL_SERVER_ERROR);
-    // }
+    if (err instanceof ResponseError) {
+      res.status(err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR);
+    } else {
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR);
+    }
     res.json(err);
   }
   next();
@@ -35,6 +36,11 @@ const handleError = (
  *                              Set basic express settings
  ***********************************************************************************/
 app.use(cors());
+
+if (process.env.NODE_ENV === 'local') {
+  app.use(morgan('dev'));
+}
+
 app.use(helmet({
   contentSecurityPolicy: process.env.NODE_ENV === 'production' ? undefined : false,
   crossOriginEmbedderPolicy: process.env.NODE_ENV !== 'local'
